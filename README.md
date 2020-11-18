@@ -65,11 +65,11 @@ The basic concept is to separate out the results from diagnostic testing from th
 
 Reporting on pure screening test data may help to address both of the major shortcomings with the common COVID metrics in use today. Many, if not most, of the positive tests in the asympomatic subsample may come from people who are not yet symptomatic. As such, the positives may come earlier in the infection cycle for this group, thus potentially leading to an earlier signal. The other big benefit is that the data would be more statistically robust. The positive test rate among screening tests would fairly accurately represent the active undiagnosed COVID infection prevalence in the larger population (with some error introduced because the samples wouldn't be truly random). 
 
-Medical professionals assign codes to medical records when ordering tests that indicate the reason for the test. Codes have been created specifically for COVID testing. While the codes do not specifically state if a patient is symptomatic or asymptomatic, it may be possible to assign status based upon the coding. If true, then separating out the databases could be straightforward. If that's possible, here are examples of charts for the states above that could be produced with this data. The *prevalence of undiagnosed COVID* data points were simulated by generating a binomial random variable from the *estimated undiagnosed infection* trendlines. Since the *estimated undiagnosed infection* trendline stops a few days before the end of the time series, a linear regression was performed to complete the trendlines. The simulations use 4000 daily samples which is less than the number of asymptomatic tests that a state like Washington
+Medical professionals assign codes to medical records when ordering tests that indicate the reason for the test. Codes have been created specifically for COVID testing. While the codes do not specifically state if a patient is symptomatic or asymptomatic, it may be possible to assign status based upon the coding. If true, then separating out the databases could be straightforward. If that's possible, here are examples of state-level charts that could be produced with this data. The *prevalence of undiagnosed COVID* data points were simulated by generating a binomial random variable from the *estimated undiagnosed infection* trendlines. Since the *estimated undiagnosed infection* trendline stops a few days before the end of the time series, a [linear regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html) was performed to complete the trendlines. The simulations use 4000 daily samples which is less than the number of asymptomatic tests that a state like Washington typically performs in a day.
 
 <img src="img/COVID-surveillance-of-prevalence.png" width = '1000'></img>
 
-In two of the above charts it appears that the daily *undiagnosed infection prevalence* datapoints cross red horizontal line well before the state governments first issued public notices of upticks. In other words, the simulated data could conceivably have indicated the emerging outbreak sooner than the current metrics. 
+In the above charts it appears that the daily *undiagnosed infection prevalence* datapoints start to rise well before the state governments first issued public notices of upticks. In other words, the simulated data could conceivably have indicated the emerging outbreak sooner than the current metrics. 
 
 Another important benefit is that the data won't suffer the same stationarity and homoscedasticity issues since data is not being mixed haphazardly from two very different populations. The data may be better-behaved and better-suited to common statistical process control tools like CUSUM sequential analysis. The charts below contain the same simulated data as the previous charts. Control lines have been added indicating if and when the means of the *prevalence of undiagnosed COVID* statistic cross the 2 standard deviation thresholds. The signals are clear and provide a much more statistically sound warning. 
 
@@ -91,13 +91,13 @@ Let's start by assuming one wants to detect a 60% increase in prevalence within 
 
 There may be an added benefit to setting up a randomized surveillance testing program like the one above. Currently, it can take days for test results from labs to find their way into report datasets. The state of Washington advises that data may be revised for up to 10 days as more results come back. Incomplete test results add yet more obscurity to today's statistics that rely on cases as a numerator. Statistics from a randomized surveillance testing program would not have the same integrity issues since the pertinent statistic is the positive test rate. 
 
-### Does a 'safe' threshold exist?
+## Does a 'safe' threshold exist?
 
 The analysis in the [first part of this project](https://github.com/salvir1/COVID-19-outbreak-data-analysis) suggested that there might be a safe level of COVID prevalence in the general population which avoids outbreaks. In other words, one can manage the COVID reproduction rate by managing the infection prevalence since transmission is dependent on person-to-person contact. The analysis in the first part of the project looked at *case rate* and estimated a safe level below 20 cases per 100,000. 
 
 Further analysis needs to be done in this area to determine a safe level for infection prevalence. Knowing a threshold would be incredibly helpful for a state seeking to minimize the impact of the COVID pandemic to both lives and livelihoods.
 
-## Future areas of study
+# Future areas of study
 
 - Data was simulated to create the undiagnosed infection control charts above. A reasonable next step would be to seek to find COVID datasets that can be separated by test type--diagnostic vs. screening.
 
@@ -105,9 +105,9 @@ Further analysis needs to be done in this area to determine a safe level for inf
 
 - Sensitivity analysis could be done by changing the parameters that feed into the simulation.
 
-## Contributors
+# Contributors
 [Rob Salvino](https://github.com/salvir1)
 
 
-## License
+# License
 [MIT ©](https://choosealicense.com/licenses/mit/)
